@@ -1,0 +1,13 @@
+.Header {
+    width: 100%;
+    padding: 1rem;
+    background-color: #111;
+    border: 2px solid #444;
+    border-radius: 12px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
