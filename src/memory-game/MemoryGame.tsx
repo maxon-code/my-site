@@ -2,10 +2,8 @@ import {useEffect, useState} from 'react'
 import './App.css'
 import SimpleCard from "./SimpleCard.tsx";
 import type {Card} from "./types.ts";
-// import { createCursorMagic } from "./components/cursor/src/core/cursor-magic.ts";
-//
-//
-// createCursorMagic();
+import {Navigation} from "../Navigation.tsx";
+
 
 
 
@@ -125,7 +123,7 @@ function MemoryGame() {
 
     return (
         <>
-
+            <Navigation/>
             <div className="App">
                 <h1>Memory-game</h1>
                 <button onClick={shuffleCards}>New Game</button>

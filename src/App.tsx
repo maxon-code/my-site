@@ -1,31 +1,41 @@
 import './App.css'
-import { Button ,Box, Card, Inset, Text, Strong, Flex } from "@radix-ui/themes";
+import { Button ,Box, Card, Inset, Text, Strong, Flex} from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
-
+import {GitHubLogoIcon} from "@radix-ui/react-icons";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import MemoryGame from "./memory-game/MemoryGame"; // ← не src/
+import { Navigation } from "./Navigation.tsx";
+import { createCursorMagic } from "cursor-magic";
 
+createCursorMagic();
 function Home() {
     const works = [
         {
             image: "img1.png",
             name: "Memory game",
-            text: "Flip the cards, find matching pairs...",
+            text: "Flip the cards, find matching pairs",
             route: "/memory-game",
-            gurl: "#",
+            gurl: "https://github.com/maxon-code/memory-game",
         },
         {
-            image: "img1.png",
-            name: "Memory game 2",
-            text: "Another memory game...",
+            image: "img2.svg",
+            name: "Weather Map",
+            text: "Check the weather right on the map",
             route: "#",
-            gurl: "#",
-        }
+            gurl: "https://github.com/maxon-code/weather-app",
+        },
+        {
+            image: "img3.svg",
+            name: "Store",
+            text: "Buy products on this website",
+            route: "#",
+            gurl: "https://github.com/maxon-code/react-shop",
+        },
     ];
 
     const renderWorks = works.map((work, index) => (
-        <Box key={index} maxWidth="240px" width="100%">
-            <Card size="2">
+        <Box key={index} width="240px">
+            <Card size="4">
                 <Inset clip="padding-box" side="top" pb="current">
                     <img
                         alt="Memory game"
@@ -39,27 +49,29 @@ function Home() {
                         }}
                     />
                 </Inset>
-                <Text as="p" size="3">
-                    <Strong>{work.name}</Strong> {work.text}
+
+                <Text as="p" size="4" align="center">
+                    <Strong>{work.name}</Strong>
                 </Text>
+                <Text as="p" size="3" align="center">
+                    {work.text}
+                </Text>
+                <Flex justify="between" align="center" >
                     <Link to={work.route}>
-                        <Button size="2">Visit site</Button>
+                        <Button size="2" >Visit site</Button>
                     </Link>
-                <a href={work.gurl}> GitHub</a>
+
+                <a href={work.gurl} style={{ marginLeft: "60px" }}>
+                   <GitHubLogoIcon width="24" height="24" color="white" />
+                </a>
+                </Flex>
             </Card>
         </Box>
     ));
 
     return (
         <>
-            <Flex direction="row" justify="between" align="center" className="Header">
-                <Text size="5">Logo</Text>
-                <Flex gap="4">
-                    <Link to="/"><Button variant="ghost">Home</Button></Link>
-                    <Button variant="ghost">Works</Button>
-                    <Button variant="ghost">GitHub</Button>
-                </Flex>
-            </Flex>
+            <Navigation />
 
             <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center">
                 {renderWorks}
