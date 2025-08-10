@@ -2,8 +2,7 @@ import './App.css'
 import { Button ,Box, Card, Inset, Text, Strong, Flex} from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import {GitHubLogoIcon} from "@radix-ui/react-icons";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import MemoryGame from "./memory-game/MemoryGame"; // ← не src/
+import { Link } from "react-router-dom";
 import { Navigation } from "./Navigation.tsx";
 import { createCursorMagic } from "cursor-magic";
 
@@ -33,12 +32,14 @@ function Home() {
         },
     ];
 
+
+
     const renderWorks = works.map((work, index) => (
         <Box key={index} width="240px">
             <Card size="4">
                 <Inset clip="padding-box" side="top" pb="current">
                     <img
-                        alt="Memory game"
+                        alt="Img"
                         src={work.image}
                         style={{
                             display: "block",
@@ -58,10 +59,11 @@ function Home() {
                 </Text>
                 <Flex justify="between" align="center" >
                     <Link to={work.route}>
-                        <Button size="2" >Visit site</Button>
+                        <Button size="2" className="hvr-grow">Visit site</Button>
+
                     </Link>
 
-                <a href={work.gurl} style={{ marginLeft: "60px" }}>
+                <a href={work.gurl} style={{ marginLeft: "60px" }} className="hvr-grow">
                    <GitHubLogoIcon width="24" height="24" color="white" />
                 </a>
                 </Flex>
@@ -80,15 +82,4 @@ function Home() {
     );
 }
 
-function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/memory-game" element={<MemoryGame />} />
-            </Routes>
-        </BrowserRouter>
-    );
-}
-
-export default App;
+export default Home;

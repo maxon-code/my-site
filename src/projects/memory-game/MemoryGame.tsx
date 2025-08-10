@@ -1,10 +1,10 @@
 import {useEffect, useState} from 'react'
-import './App.css'
+import './Game.css'
 import SimpleCard from "./SimpleCard.tsx";
 import type {Card} from "./types.ts";
-import {Navigation} from "../Navigation.tsx";
-
-
+import {Navigation} from "../../Navigation.tsx";
+import {Button, Strong, Text, Flex, Link} from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 
 
 
@@ -120,13 +120,20 @@ function MemoryGame() {
 
 
 
-
+        const [isHovered ,setHovered] = useState(false);
     return (
         <>
+
             <Navigation/>
             <div className="App">
-                <h1>Memory-game</h1>
-                <button onClick={shuffleCards}>New Game</button>
+                <h1><Strong>Memory-game</Strong></h1>
+                <Flex justify="space-between" gap="4" align="center" >
+                    <Button className="hvr-grow" onClick={shuffleCards} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+                            New Game</Button>
+                    <Link href="/">
+                    <Button variant="outline" color="gray" className="hvr-buzz" >Back to home</Button>
+                        </Link>
+                </Flex>
                 <div className="card-grid">
                     {cards.map((card) => (
                         <SimpleCard
@@ -138,7 +145,7 @@ function MemoryGame() {
                         />
                     ))}
                 </div>
-                <p>Turns: {turns}</p>
+                <Text>Turns: {turns}</Text>
                 {/*<p>Time: {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>*/}
             </div>
         </>
