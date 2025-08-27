@@ -4,9 +4,7 @@ import "@radix-ui/themes/styles.css";
 import {GitHubLogoIcon} from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
 import { Navigation } from "./Navigation.tsx";
-import { createCursorMagic } from "cursor-magic";
 
-createCursorMagic();
 function Home() {
     const works = [
         {
@@ -20,14 +18,14 @@ function Home() {
             image: "img2.svg",
             name: "Weather Map",
             text: "Check the weather right on the map",
-            route: "#",
+            route: "/weather-app",
             gurl: "https://github.com/maxon-code/weather-app",
         },
         {
             image: "img3.svg",
             name: "Store",
             text: "Buy products on this website",
-            route: "#",
+            route: "/shop",
             gurl: "https://github.com/maxon-code/react-shop",
         },
     ];

@@ -1,9 +1,9 @@
 import {Flex, TabNav, Text} from "@radix-ui/themes";
 import {GitHubLogoIcon, HomeIcon} from "@radix-ui/react-icons";
-
+import "./App.css"
 export function Navigation() {
    return (
-       <Flex justify="between" align="center" className="Header">
+       <Flex justify="between" align="center" className="Header" >
     <Text size="5" weight="bold">Logo</Text>
 
         <TabNav.Root color="lime">
