@@ -1,10 +1,10 @@
 import './App.css'
-import { Button ,Box, Card, Inset, Text, Strong, Flex} from "@radix-ui/themes";
+import {Button, Box, Card, Inset, Text, Strong, Flex, Heading, Avatar, Blockquote, Badge} from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import {GitHubLogoIcon} from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
 import { Navigation } from "./Navigation.tsx";
-
+import { ScrollArea } from "radix-ui";
 function Home() {
     const works = [
         {
@@ -71,9 +71,45 @@ function Home() {
 
     return (
         <>
-            <Navigation />
 
-            <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center">
+
+            <Flex height="100px" border radius="full">
+            <Navigation />
+            </Flex>
+
+
+            <Flex gap="9" justify="space-between" border radius="large" p="9" m="120px" >
+
+                <Box width="300px" height="200px" >
+                    <Avatar src="/public/591.jpg" alt="Profile" style={{ width: "100%", height: "100%" }}/>
+                </Box>
+
+
+                <Box width="100%" height="100%" >
+                    <Heading weight="light" size="9" align="right" color="lime" wrap="balance" radius="full" >
+                        About me
+                    </Heading>
+                    <Blockquote size="5" weight="light" align="right" wrap="balance">
+                        Hi, I’m a Frontend Developer. I build modern websites and apps with React, Next.js, and
+                        Radix UI — focusing on clean design and smooth user experience.
+                        <br />
+                        <br />
+                        I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm
+                        not coding, I like to explore new technologies, design trends, and spend time in nature.
+                        <br />
+                        <br />
+                        This text block is intentionally long to create a scrollable area on the right, so you can
+                        see the ScrollArea effect in action.
+                    </Blockquote>
+                </Box>
+            </Flex>
+
+
+
+
+
+
+            <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center" p="9">
                 {renderWorks}
             </Flex>
         </>

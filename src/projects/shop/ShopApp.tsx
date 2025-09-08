@@ -157,7 +157,7 @@ export default function App() {
                 </Popover.Content>
             </Popover.Root>
 
-            {/* Список товаров */}
+
             <Flex gap="4" mt="4">
                 {products.map((p) => (
                     <Card key={p.id} style={{ width: 200, padding: 16 }}>
@@ -183,7 +183,7 @@ export default function App() {
                         </Button>
                     </Card>
                 ))}
-                
+
             </Flex>
         </Box>
 
