@@ -1,6 +1,6 @@
 import {Flex, TabNav, Text} from "@radix-ui/themes";
 import {GitHubLogoIcon, HomeIcon} from "@radix-ui/react-icons";
-import "./App.css"
+import "./main/App.css"
 import "@radix-ui/themes/styles.css";
 export function Navigation() {
    return (

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .Header {
     width: 100%;
     padding: 1rem;
@@ -21,6 +22,29 @@ html, body {
         opacity: 1;
     }
 }
+
+
+
+
+
+.card-list:has(.carde:hover) .carde:not(:hover) {
+    filter: blur(4px);
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Чтобы при снятии ховера анимация тоже плавно уходила */
+.card-list .carde {
+    transition: filter 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
 
 
 

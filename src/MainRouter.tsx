@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./App";
+import Home from "./main/App.tsx";
 import MemoryGame from "./projects/memory-game/MemoryGame";
 import MainMapWrapper from "./projects/weather-app/MainWrapper.tsx";
 import ShopApp from "./projects/shop/ShopApp.tsx";

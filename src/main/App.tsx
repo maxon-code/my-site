@@ -1,10 +1,13 @@
 import './App.css'
 import {Button, Box, Card, Inset, Text, Strong, Flex, Heading, Avatar, Blockquote, Badge} from "@radix-ui/themes";
+
+import * as HoverCard from "@radix-ui/react-hover-card";
+
 import "@radix-ui/themes/styles.css";
 import {GitHubLogoIcon} from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
-import { Navigation } from "./Navigation.tsx";
-import { ScrollArea } from "radix-ui";
+import { Navigation } from "../Navigation.tsx";
+import { RenderCards } from "../Cards.tsx"
 function Home() {
     const works = [
         {
@@ -34,7 +37,7 @@ function Home() {
 
     const renderWorks = works.map((work, index) => (
         <Box key={index} width="240px">
-            <Card size="4">
+            <Card size="4" >
                 <Inset clip="padding-box" side="top" pb="current">
                     <img
                         alt="Img"
@@ -50,6 +53,7 @@ function Home() {
                 </Inset>
 
                 <Text as="p" size="4" align="center">
+
                     <Strong>{work.name}</Strong>
                 </Text>
                 <Text as="p" size="3" align="center">
@@ -78,9 +82,9 @@ function Home() {
             </Flex>
 
 
-            <Flex gap="9" justify="space-between" border radius="large" p="9" m="120px" >
+            <Flex gap="9" justify="space-between" border radius="large"  m="220px" >
 
-                <Box width="300px" height="200px" >
+                <Box width="300px" height="200px" mt="9">
                     <Avatar src="/public/591.jpg" alt="Profile" style={{ width: "100%", height: "100%" }}/>
                 </Box>
 
@@ -107,11 +111,25 @@ function Home() {
 
 
 
+            <Flex m="9">
+
+                <RenderCards/>
+            </Flex>
 
 
+            <Flex gap="9" direction="row" wrap="wrap" align="center" justify="center" p="9" m="3">
+                <Heading weight="bold" color="lime" align="center" size="9" className="typing-text"> My works </Heading>
+                </Flex>
             <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center" p="9">
+
                 {renderWorks}
             </Flex>
+
+
+
+
+
+
         </>
     );
 }
