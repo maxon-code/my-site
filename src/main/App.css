@@ -5,9 +5,69 @@
     background: none !important;
     border: 2px solid #444;
     border-radius: 12px;
-
 }
+
+.nav-container {
+    margin-left: 1.25rem;
+}
+
+.nav-text {
+    margin-left: 0.5rem;
+}
+@media (max-width: 600px) {
+    .Header {
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border-width: 1px;
+    }
+    .nav-text {
+        display: none;
+    }
+
+    .nav-container {
+        margin-right: 0.25rem;
+    }
+
+    .nav-container [data-accent-color]{
+        gap: 0.25rem
+    }
+}
+@media (max-width: 400px) {
+    .Header {
+        padding: 0.4rem;
+    }
+    .nav-container {
+        margin-right: 0;
+    }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+    .Header {
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+    }
+    .nav-text {
+        margin-left: 0.35rem;
+    }
+
+    .nav-container {
+        margin-right: 0.75rem;
+    }
+}
+@media (min-width: 1024px) {
+    .Header {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .nav-text {
+        margin-left: 0.5rem;
+    }
+}
+
+
+
 html, body {
+    scroll-behavior: smooth;
     height: 100%;
     margin: 0;
     animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;;

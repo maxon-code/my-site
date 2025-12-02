@@ -1,12 +1,12 @@
 'use client';
-import { Button ,Box, Card, Inset, Text, Strong, Flex, TextField, Container} from "@radix-ui/themes";
+import { Button, Text, Flex, TextField} from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import SearchIcon from './lupa.png';
-import { Navigation} from "../../Navigation.tsx";
+import { Navigation} from "../../Navigation";
 
 const customIcon = L.icon({
     iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
@@ -20,7 +20,7 @@ function ChangeMapZoom({  center  }: {center: [number, number]}) {
     const map = useMap();
     useEffect(() => {
         map.setView(center, 13);
-    }, [center]);
+    });
     return null
 }
 
@@ -40,7 +40,7 @@ export default function MainMap() {
                 if (data.weather && data.main) {
                     setWeather(`${data.weather[0].description}, ${data.main.temp}°C`);
                 } else {
-                    setWeather('Errorо 404');
+                    setWeather('Error 404');
                 }
             })
             .catch(() => setWeather('Network Error'));
@@ -58,7 +58,7 @@ export default function MainMap() {
                 } else {
                     alert('Sity could not be found.');
                 }
-            } catch (error) {
+            } catch {
                 alert('Network error');
             }
     };
@@ -68,11 +68,11 @@ export default function MainMap() {
                 <Flex>
             <Navigation ></Navigation>
                 </Flex>
-                <Flex gap="1" justify="center" m="20px" >
+                <Flex gap="1" justify="center" style={{ margin: "20px" }}  >
                     <TextField.Root size="3" variant="classic" placeholder="Search the city" value={city} onChange={(e) => setCity(e.target.value)} >
                     </TextField.Root>
 
-                    <Button  size="3" onClick={SearchCity}><img src={SearchIcon} style={{width: `10px`, height: `10px` }}/>Search</Button>
+                    <Button  size="3" onClick={SearchCity}><img alt="Search" src={SearchIcon} style={{width: `10px`, height: `10px` }}/>Search</Button>
                     </Flex>
 
 
@@ -88,7 +88,7 @@ export default function MainMap() {
                         </Marker>
                     </MapContainer>
                 ) : (
-                    <Flex justify="center" alignItems="center" justifyContent="center" m="200px">
+                    <Flex justify="center" align="center" style={{ margin: "200px" }} >
                     <Text size="5" weight="medium">Enter a city to display the map</Text>
                     </Flex>
                 )}

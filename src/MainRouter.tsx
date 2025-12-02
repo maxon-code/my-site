@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./main/App.tsx";
+import Home from "./main/App";
 import MemoryGame from "./projects/memory-game/MemoryGame";
-import MainMapWrapper from "./projects/weather-app/MainWrapper.tsx";
-import ShopApp from "./projects/shop/ShopApp.tsx";
+import MainMapWrapper from "./projects/weather-app/MainWrapper";
+import ShopApp from "./projects/shop/ShopApp";
 export function MainRouter() {
     return (
         <Routes>

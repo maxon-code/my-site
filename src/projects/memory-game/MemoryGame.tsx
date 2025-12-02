@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import './Game.css'
-import SimpleCard from "./SimpleCard.tsx";
+import SimpleCard from "./SimpleCard";
 import type {Card} from "./types.ts";
-import {Navigation} from "../../Navigation.tsx";
+import {Navigation} from "../../Navigation";
 import {Button, Strong, Text, Flex, Link} from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 
@@ -98,37 +98,18 @@ function MemoryGame() {
         }
     }, [choiceOne, choiceTwo]);
 
-                        // TIME COUNTER (IN PROCESS...)
-        // const [seconds, setSeconds] = useState(0);
-        // const [minutes, setMinutes] = useState(0);
-        //
-        //
-        // useEffect(() => {
-        //     const interval = setInterval(() => {
-        //         setSeconds(prevSeconds => {
-        //             if (prevSeconds === 59) {
-        //                 setMinutes(prevMinutes => prevMinutes + 1);
-        //                 return 0;
-        //             } else {
-        //                 return prevSeconds + 1;
-        //             }
-        //         });
-        //     }, 1000);
-        //
-        //     return () => clearInterval(interval);
-        // }, []);
 
 
 
-        const [isHovered ,setHovered] = useState(false);
+
     return (
         <>
 
             <Navigation/>
             <div className="App">
                 <h1><Strong>Memory-game</Strong></h1>
-                <Flex justify="space-between" gap="4" align="center" >
-                    <Button className="hvr-grow" onClick={shuffleCards} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+                <Flex justify="between" gap="4" align="center" >
+                    <Button className="hvr-grow" onClick={shuffleCards}>
                             New Game</Button>
                     <Link href="/">
                     <Button variant="outline" color="gray" className="hvr-buzz" >Back to home</Button>
@@ -146,7 +127,7 @@ function MemoryGame() {
                     ))}
                 </div>
                 <Text>Turns: {turns}</Text>
-                {/*<p>Time: {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>*/}
+
             </div>
         </>
     )

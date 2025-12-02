@@ -9,8 +9,7 @@ import {
     ScrollArea,
     Card, Inset,
 } from "@radix-ui/themes";
-import { NavigationMenu } from "radix-ui";
-import {Navigation} from "../../Navigation.tsx";
+import {Navigation} from "../../Navigation";
 
 type CartItem = {
     id: number;
@@ -122,7 +121,7 @@ export default function App() {
 
 
         <Box p="4" >
-            <Navigation> </Navigation>
+            <Navigation></Navigation>
             <Popover.Root >
                 <Popover.Trigger >
                     <Button>

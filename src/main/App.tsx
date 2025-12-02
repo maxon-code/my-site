@@ -1,13 +1,13 @@
 import './App.css'
-import {Button, Box, Card, Inset, Text, Strong, Flex, Heading, Avatar, Blockquote, Badge} from "@radix-ui/themes";
+import {Button, Box, Card, Inset, Text, Strong, Flex, Heading, Blockquote} from "@radix-ui/themes";
 
-import * as HoverCard from "@radix-ui/react-hover-card";
+
 
 import "@radix-ui/themes/styles.css";
 import {GitHubLogoIcon} from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
-import { Navigation } from "../Navigation.tsx";
-import { RenderCards } from "../Cards.tsx"
+import { Navigation } from "../Navigation";
+import { RenderCards } from "../Cards"
 function Home() {
     const works = [
         {
@@ -77,33 +77,68 @@ function Home() {
         <>
 
 
-            <Flex height="100px" border radius="full">
+            <Flex>
             <Navigation />
             </Flex>
 
 
-            <Flex gap="9" justify="space-between" border radius="large"  m="220px" >
+            <Flex
+                direction={{ initial: "column", md: "row" }}   // ← ВАЖНО: на телефоне колонка, на ПК — ряд
+                gap={{ initial: "5", md: "9" }}               // ← мобильный ГАП меньше
+                justify="between"
+                px="5"
+                py="3"
+                align={{ initial: "center", md: "start" }}     // ← по центру на телефоне
+                width="100%"
+            >
 
-                <Box width="300px" height="200px" mt="9">
-                    <Avatar src="/public/591.jpg" alt="Profile" style={{ width: "100%", height: "100%" }}/>
+                {/* Аватар / фото */}
+                <Box
+                    width={{ initial: "200px", md: "300px" }}     // ← на телефоне меньше
+                    height={{ initial: "200px", md: "200px" }}
+                    mt={{ initial: "3", md: "9" }}                // ← мобильный верхний отступ меньше
+                >
+                    <img
+                        src="/public/591.jpg"
+                        alt="Profile"
+                        style={{
+                            objectFit: "cover",
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "var(--radius-2)",
+                        }}
+                    />
                 </Box>
 
-
-                <Box width="100%" height="100%" >
-                    <Heading weight="light" size="9" align="right" color="lime" wrap="balance" radius="full" >
+                {/* Текстовый блок */}
+                <Box
+                    width={{ initial: "100%", md: "100%" }}
+                    textAlign={{ initial: "center", md: "right" }}
+                    mt={{ initial: "4", md: "0" }}
+                >
+                    <Heading
+                        weight="light"
+                        size={{ initial: "6", md: "9" }}
+                        color="lime"
+                        wrap="balance"
+                    >
                         About me
                     </Heading>
-                    <Blockquote size="5" weight="light" align="right" wrap="balance">
-                        Hi, I’m a Frontend Developer. I build modern websites and apps with React, Next.js, and
-                        Radix UI — focusing on clean design and smooth user experience.
-                        <br />
-                        <br />
-                        I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm
-                        not coding, I like to explore new technologies, design trends, and spend time in nature.
-                        <br />
-                        <br />
-                        This text block is intentionally long to create a scrollable area on the right, so you can
-                        see the ScrollArea effect in action.
+
+                    <Blockquote
+                        size={{ initial: "3", md: "5" }}
+                        weight="light"
+                        wrap="balance"
+                        mt="2"
+                    >
+                        Hi, I’m a Frontend Developer. I build modern websites and apps with React, Next.js,
+                        and Radix UI — focusing on clean design and smooth user experience.
+                        <br /><br />
+                        I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+                        When I'm not coding, I like to explore new technologies, design trends, and spend
+                        time in nature.
+                        <br /><br />
+                        This text block is intentionally long to create a scrollable area on the right.
                     </Blockquote>
                 </Box>
             </Flex>
@@ -117,8 +152,8 @@ function Home() {
             </Flex>
 
 
-            <Flex gap="9" direction="row" wrap="wrap" align="center" justify="center" p="9" m="3">
-                <Heading weight="bold" color="lime" align="center" size="9" className="typing-text"> My works </Heading>
+            <Flex gap="9" direction="row" wrap="wrap" align="center" justify={{ initial: "center", md: "center"}} p="9" m="3">
+                <Heading weight="bold" color="lime" size="9" id="works"> My works </Heading>
                 </Flex>
             <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center" p="9">
 
