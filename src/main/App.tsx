@@ -78,72 +78,32 @@ function Home() {
 
 
             <Flex>
-            <Navigation />
+                <Navigation/>
             </Flex>
 
 
             <Flex
-                direction={{ initial: "column", md: "row" }}   // ← ВАЖНО: на телефоне колонка, на ПК — ряд
-                gap={{ initial: "5", md: "9" }}               // ← мобильный ГАП меньше
-                justify="between"
-                px="5"
-                py="3"
-                align={{ initial: "center", md: "start" }}     // ← по центру на телефоне
+                direction={{initial: "column", md: "row"}}   // ← ВАЖНО: на телефоне колонка, на ПК — ряд
+                gap={{initial: "5", md: "9"}}               // ← мобильный ГАП меньше
+                justify="center"
+                px="8"
+                py="8"
+                align="center"     // ← по центру на телефоне
                 width="100%"
             >
 
-                {/* Аватар / фото */}
-                <Box
-                    width={{ initial: "200px", md: "300px" }}     // ← на телефоне меньше
-                    height={{ initial: "200px", md: "200px" }}
-                    mt={{ initial: "3", md: "9" }}                // ← мобильный верхний отступ меньше
-                >
-                    <img
-                        src="/public/591.jpg"
-                        alt="Profile"
-                        style={{
-                            objectFit: "cover",
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: "var(--radius-2)",
-                        }}
-                    />
-                </Box>
-
-                {/* Текстовый блок */}
-                <Box
-                    width={{ initial: "100%", md: "100%" }}
-                    textAlign={{ initial: "center", md: "right" }}
-                    mt={{ initial: "4", md: "0" }}
-                >
-                    <Heading
-                        weight="light"
-                        size={{ initial: "6", md: "9" }}
-                        color="lime"
-                        wrap="balance"
-                    >
-                        About me
-                    </Heading>
-
-                    <Blockquote
-                        size={{ initial: "3", md: "5" }}
-                        weight="light"
-                        wrap="balance"
-                        mt="2"
-                    >
-                        Hi, I’m a Frontend Developer. I build modern websites and apps with React, Next.js,
-                        and Radix UI — focusing on clean design and smooth user experience.
-                        <br /><br />
-                        I enjoy turning complex problems into simple, beautiful, and intuitive designs.
-                        When I'm not coding, I like to explore new technologies, design trends, and spend
-                        time in nature.
-                        <br /><br />
+                <div className="bio">
+                    <p className="bio-title">About me</p>
+                    <p className="small-desc">
+                        Hi, I’m a Frontend Developer. I build modern websites and apps with React, Next.js, and Radix UI — focusing on clean design and smooth user experience.
+                        I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, I like to explore new technologies, design trends, and spend time in nature.
                         This text block is intentionally long to create a scrollable area on the right.
-                    </Blockquote>
-                </Box>
+                    </p>
+                    <div className="go-corner">
+                        <div className="go-arrow">→</div>
+                    </div>
+                </div>
             </Flex>
-
-
 
 
             <Flex m="9">
@@ -152,17 +112,14 @@ function Home() {
             </Flex>
 
 
-            <Flex gap="9" direction="row" wrap="wrap" align="center" justify={{ initial: "center", md: "center"}} p="9" m="3">
+            <Flex gap="9" direction="row" wrap="wrap" align="center" justify={{initial: "center", md: "center"}} p="9"
+                  m="3">
                 <Heading weight="bold" color="lime" size="9" id="works"> My works </Heading>
-                </Flex>
+            </Flex>
             <Flex gap="2" direction="row" wrap="wrap" align="center" justify="center" p="9">
 
                 {renderWorks}
             </Flex>
-
-
-
-
 
 
         </>
